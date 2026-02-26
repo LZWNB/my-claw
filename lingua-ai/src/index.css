@@ -2,6 +2,30 @@
 
 @theme {
   --color-*: initial;
+  
+  /* Primary Colors */
+  --color-primary: #137fec;
+  --color-primary-dark: #0b5db0;
+  
+  /* Background Colors */
+  --color-background-light: #f6f7f8;
+  --color-background-dark: #101922;
+  
+  /* Surface Colors */
+  --color-surface-light: #ffffff;
+  --color-surface-dark: #1a2634;
+  
+  /* Text Colors */
+  --color-text-main: #0d141b;
+  --color-text-main-dark: #e7edf3;
+  --color-text-secondary: #4c739a;
+  --color-text-secondary-dark: #94a3b8;
+  
+  /* Border Colors */
+  --color-border-light: #e7edf3;
+  --color-border-dark: #2d3b4e;
+  
+  /* Standard Colors */
   --color-white: #ffffff;
   --color-black: #000000;
   --color-gray-50: #f9fafb;
@@ -26,10 +50,15 @@
   --color-blue-800: #1e40af;
   --color-blue-900: #1e3a8a;
   --color-blue-950: #172554;
+  
+  /* Social Colors */
+  --color-wechat: #07C160;
+  --color-line: #06C755;
+  --color-kakao: #FEE500;
 }
 
 :root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Noto Sans SC', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 }
@@ -83,6 +112,6 @@ body {
 
 /* Focus styles */
 *:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #137fec;
   outline-offset: 2px;
 }

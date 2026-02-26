@@ -1,160 +1,87 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Sun, Moon, Globe, User, Menu, X } from 'lucide-react';
 import { useAppStore } from '../stores/appStore';
 import type { Language } from '../types';
 
 export function Navbar() {
   const { t, i18n } = useTranslation();
-  const { theme, toggleTheme, language, setLanguage, isAuthenticated } = useAppStore();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLangOpen, setIsLangOpen] = useState(false);
+  const { theme, toggleTheme, language, setLanguage } = useAppStore();
 
   const languages: { code: Language; label: string }[] = [
-    { code: 'zh-CN', label: '简体中文' },
-    { code: 'zh-TW', label: '繁體中文' },
-    { code: 'ja', label: '日本語' },
-    { code: 'ko', label: '한국어' },
+    { code: 'zh-CN', label: '简' },
+    { code: 'zh-TW', label: '繁' },
+    { code: 'ja', label: 'JP' },
+    { code: 'ko', label: 'KR' },
   ];
 
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
     i18n.changeLanguage(lang);
-    setIsLangOpen(false);
   };
 
-  const navLinks = [
-    { href: '/', label: t('nav.home') },
-    { href: '/courses', label: t('nav.courses') },
-    { href: '/vocabulary', label: t('nav.vocabulary') },
-    { href: '/community', label: t('nav.community') },
-    { href: '/pricing', label: t('nav.pricing') },
-  ];
-
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">L</span>
-            </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-white">
-              LinguaAI
-            </span>
-          </div>
+    <header className="sticky top-0 z-50 flex items-center justify-between border-b border-border-light dark:border-border-dark bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md px-6 py-4 md:px-10">
+      {/* Logo */}
+      <Link to="/" className="flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+          <span className="material-symbols-outlined text-3xl">language</span>
+        </div>
+        <h2 className="text-xl font-bold tracking-tight text-text-main dark:text-text-main-dark">LinguaAI</h2>
+      </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+      {/* Desktop Nav */}
+      <div className="hidden md:flex items-center gap-8">
+        <nav className="flex gap-6">
+          <a className="text-sm font-medium text-text-secondary hover:text-primary dark:text-text-secondary-dark dark:hover:text-primary transition-colors" href="#features">功能</a>
+          <a className="text-sm font-medium text-text-secondary hover:text-primary dark:text-text-secondary-dark dark:hover:text-primary transition-colors" href="#pricing">定价</a>
+          <a className="text-sm font-medium text-text-secondary hover:text-primary dark:text-text-secondary-dark dark:hover:text-primary transition-colors" href="#community">社区</a>
+        </nav>
+      </div>
 
-          {/* Right Actions */}
-          <div className="flex items-center gap-2">
-            {/* Language Selector */}
-            <div className="relative">
-              <button
-                onClick={() => setIsLangOpen(!isLangOpen)}
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              >
-                <Globe className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-              </button>
-              {isLangOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-1">
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => handleLanguageChange(lang.code)}
-                      className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${
-                        language === lang.code
-                          ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                          : 'text-gray-700 dark:text-gray-300'
-                      }`}
-                    >
-                      {lang.label}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Theme Toggle */}
+      {/* Right Actions */}
+      <div className="flex items-center gap-3">
+        {/* Language Selector */}
+        <div className="hidden sm:flex items-center gap-1 rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark p-1">
+          {languages.map((lang) => (
             <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              key={lang.code}
+              onClick={() => handleLanguageChange(lang.code)}
+              className={`rounded px-2 py-1 text-xs font-medium transition-colors ${
+                language === lang.code
+                  ? 'text-primary bg-white dark:bg-surface-dark shadow-sm font-bold'
+                  : 'text-text-secondary dark:text-text-secondary-dark hover:bg-black/5 dark:hover:bg-white/5'
+              }`}
             >
-              {theme === 'light' ? (
-                <Moon className="w-5 h-5 text-gray-600" />
-              ) : (
-                <Sun className="w-5 h-5 text-gray-300" />
-              )}
+              {lang.label}
             </button>
-
-            {/* Auth Button */}
-            {isAuthenticated ? (
-              <Link
-                to="/dashboard"
-                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-              >
-                <User className="w-4 h-4" />
-                <span>{t('dashboard.continue')}</span>
-              </Link>
-            ) : (
-              <Link
-                to="/login"
-                className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-              >
-                <span>{t('auth.login')}</span>
-              </Link>
-            )}
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              {isMenuOpen ? (
-                <X className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-              ) : (
-                <Menu className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-              )}
-            </button>
-          </div>
+          ))}
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-800">
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Link
-                to={isAuthenticated ? '/dashboard' : '/login'}
-                className="mx-4 mt-2 px-4 py-2 rounded-lg bg-blue-600 text-white text-center hover:bg-blue-700 transition-colors"
-              >
-                {isAuthenticated ? t('dashboard.continue') : t('auth.login')}
-              </Link>
-            </div>
-          </div>
-        )}
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          className="p-2 rounded-lg text-text-secondary hover:bg-background-light dark:hover:bg-background-dark transition-colors"
+        >
+          <span className="material-symbols-outlined text-xl dark:hidden">dark_mode</span>
+          <span className="material-symbols-outlined text-xl hidden dark:block">light_mode</span>
+        </button>
+
+        {/* Login Button */}
+        <Link
+          to="/login"
+          className="hidden sm:flex h-9 px-4 items-center justify-center rounded-lg border border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark text-sm font-bold text-text-main dark:text-text-main-dark hover:bg-background-light dark:hover:bg-background-dark transition-colors"
+        >
+          登录
+        </Link>
+
+        {/* Register Button */}
+        <Link
+          to="/register"
+          className="flex h-9 px-4 items-center justify-center rounded-lg bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary-dark transition-colors"
+        >
+          立即注册
+        </Link>
       </div>
-    </nav>
+    </header>
   );
 }

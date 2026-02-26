@@ -1,31 +1,21 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Download } from 'lucide-react';
 
 export function CTA() {
-  const { t } = useTranslation();
-
   return (
-    <section className="py-20 bg-gray-900 dark:bg-black">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6">
-          {t('cta.title')}
-        </h2>
-        <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
-          {t('cta.subtitle')}
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-4">
+    <section className="bg-surface-light dark:bg-surface-dark px-4 py-20 sm:px-10">
+      <div className="mx-auto max-w-4xl rounded-3xl bg-background-dark dark:bg-primary/10 px-6 py-16 text-center shadow-2xl md:px-12">
+        <h2 className="mb-4 text-3xl font-black text-white dark:text-text-main-dark sm:text-4xl">准备好开始您的旅程了吗？</h2>
+        <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-300 dark:text-text-secondary-dark">今天就加入超过 50 万名在 AI 辅助下掌握英语的学习者行列。免费开始。</p>
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             to="/register"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all hover:scale-105"
+            className="flex h-12 min-w-[180px] items-center justify-center gap-2 rounded-xl bg-primary px-8 text-base font-bold text-white shadow-lg transition-transform hover:scale-105 hover:bg-primary-dark"
           >
-            {t('cta.register')}
-            <ArrowRight className="w-5 h-5" />
+            立即免费注册
           </Link>
-          <button className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gray-800 text-white font-semibold border border-gray-700 hover:bg-gray-700 transition-all">
-            <Download className="w-5 h-5" />
-            {t('cta.download')}
+          <button className="flex h-12 min-w-[180px] items-center justify-center gap-2 rounded-xl border border-gray-600 bg-transparent px-8 text-base font-bold text-white transition-colors hover:bg-white/10 dark:border-border-dark dark:text-text-main-dark dark:hover:bg-white/5">
+            下载应用
           </button>
         </div>
       </div>
