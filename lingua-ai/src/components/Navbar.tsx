@@ -4,8 +4,8 @@ import { useAppStore } from '../stores/appStore';
 import type { Language } from '../types';
 
 export function Navbar() {
-  const { t, i18n } = useTranslation();
-  const { theme, toggleTheme, language, setLanguage } = useAppStore();
+  const { i18n } = useTranslation();
+  const { toggleTheme, language, setLanguage } = useAppStore();
 
   const languages: { code: Language; label: string }[] = [
     { code: 'zh-CN', label: '简' },

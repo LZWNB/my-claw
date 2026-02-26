@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next';
-
 const languages = [
   { name: '中文', sub: '简体' },
   { name: '繁體', sub: '繁体' },

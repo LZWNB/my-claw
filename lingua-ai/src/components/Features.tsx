@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 const features = [
   {
@@ -23,7 +22,6 @@ const features = [
 ];
 
 export function Features() {
-  const { t } = useTranslation();
 
   return (
     <section id="features" className="px-4 py-20 sm:px-10">

@@ -4,7 +4,7 @@ import { useAppStore } from '../stores/appStore';
 
 export function LoginPage() {
   const navigate = useNavigate();
-  const { setUser, toggleTheme, theme } = useAppStore();
+  const { setUser, toggleTheme } = useAppStore();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({

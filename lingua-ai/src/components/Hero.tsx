@@ -1,8 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 export function Hero() {
-  const { t } = useTranslation();
 
   const stats = [
     { value: '50万+', label: '活跃学习者' },
