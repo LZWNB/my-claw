@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next';
-
 const features = [
   {
     icon: 'chat_bubble',
