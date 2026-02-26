@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppStore } from './stores/appStore';
 import './i18n';
@@ -10,11 +10,18 @@ import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { VocabularyPage } from './pages/VocabularyPage';
 
+const router = createHashRouter([
+  { path: '/', element: <HomePage /> },
+  { path: '/login', element: <LoginPage /> },
+  { path: '/register', element: <LoginPage /> },
+  { path: '/dashboard', element: <DashboardPage /> },
+  { path: '/vocabulary', element: <VocabularyPage /> },
+]);
+
 function App() {
   const { theme } = useAppStore();
 
   useEffect(() => {
-    // 初始化主题
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
@@ -22,17 +29,7 @@ function App() {
     }
   }, [theme]);
 
-  return (
-    <BrowserRouter basename="/my-claw">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<LoginPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/vocabulary" element={<VocabularyPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
