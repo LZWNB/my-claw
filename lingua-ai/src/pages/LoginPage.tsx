@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { Eye, EyeOff, Mail, Lock, User } from 'lucide-react';
 import { useAppStore } from '../stores/appStore';
 
@@ -150,12 +151,12 @@ export function LoginPage() {
 
         {/* Back to Home */}
         <div className="text-center mt-6">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
           >
             ← 返回首页
-          </a>
+          </Link>
         </div>
       </div>
     </div>

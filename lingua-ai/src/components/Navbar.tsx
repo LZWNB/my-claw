@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { Sun, Moon, Globe, User, Menu, X } from 'lucide-react';
 import { useAppStore } from '../stores/appStore';
 import type { Language } from '../types';
@@ -48,13 +49,13 @@ export function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -101,20 +102,20 @@ export function Navbar() {
 
             {/* Auth Button */}
             {isAuthenticated ? (
-              <a
-                href="/dashboard"
+              <Link
+                to="/dashboard"
                 className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
               >
                 <User className="w-4 h-4" />
                 <span>{t('dashboard.continue')}</span>
-              </a>
+              </Link>
             ) : (
-              <a
-                href="/login"
+              <Link
+                to="/login"
                 className="hidden md:flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
               >
                 <span>{t('auth.login')}</span>
-              </a>
+              </Link>
             )}
 
             {/* Mobile Menu Button */}
@@ -136,20 +137,20 @@ export function Navbar() {
           <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-800">
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className="px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href={isAuthenticated ? '/dashboard' : '/login'}
+              <Link
+                to={isAuthenticated ? '/dashboard' : '/login'}
                 className="mx-4 mt-2 px-4 py-2 rounded-lg bg-blue-600 text-white text-center hover:bg-blue-700 transition-colors"
               >
                 {isAuthenticated ? t('dashboard.continue') : t('auth.login')}
-              </a>
+              </Link>
             </div>
           </div>
         )}

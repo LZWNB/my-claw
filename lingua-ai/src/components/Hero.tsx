@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Play, MessageCircle } from 'lucide-react';
 
 export function Hero() {
@@ -31,13 +32,13 @@ export function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <a
-                href="/register"
+              <Link
+                to="/register"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all hover:scale-105"
               >
                 {t('hero.startFree')}
                 <ArrowRight className="w-5 h-5" />
-              </a>
+              </Link>
               <button className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-semibold border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
                 <Play className="w-5 h-5" />
                 {t('hero.watchDemo')}

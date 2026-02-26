@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Download } from 'lucide-react';
 
 export function CTA() {
@@ -15,13 +16,13 @@ export function CTA() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href="/register"
+          <Link
+            to="/register"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all hover:scale-105"
           >
             {t('cta.register')}
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
           <button className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gray-800 text-white font-semibold border border-gray-700 hover:bg-gray-700 transition-all">
             <Download className="w-5 h-5" />
             {t('cta.download')}
