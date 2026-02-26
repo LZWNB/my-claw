@@ -4,10 +4,8 @@ import {
   Target,
   Flame,
   Trophy,
-  Calendar,
   Play,
   RotateCcw,
-  ChevronRight,
 } from 'lucide-react';
 import { useAppStore } from '../stores/appStore';
 import {

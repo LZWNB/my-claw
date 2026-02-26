@@ -4,7 +4,6 @@ import {
   Search,
   Volume2,
   Check,
-  RotateCcw,
   Bookmark,
   TrendingUp,
   Hash,

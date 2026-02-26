@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, Play, MessageCircle, Brain, Users } from 'lucide-react';
+import { ArrowRight, Play, MessageCircle } from 'lucide-react';
 
 export function Hero() {
   const { t } = useTranslation();
