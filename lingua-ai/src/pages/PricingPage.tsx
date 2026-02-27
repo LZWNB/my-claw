@@ -3,8 +3,6 @@ import {
   Check,
   X,
   Sparkles,
-  Zap,
-  Crown,
   ArrowRight,
   Shield,
   Clock,
@@ -121,9 +119,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export function PricingPage() {
-  const { t } = useTranslation();
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
 
   const plans = [
     {

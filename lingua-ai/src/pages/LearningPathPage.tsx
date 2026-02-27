@@ -4,10 +4,8 @@ import {
   Target,
   Clock,
   Award,
-  ChevronRight,
   Check,
   Lock,
-  Star,
   BookOpen,
   Headphones,
   MessageCircle,
@@ -167,10 +165,8 @@ function WeeklyGoal({ day, completed, current }: {
 }
 
 export function LearningPathPage() {
-  const { t } = useTranslation();
   const { user, stats } = useAppStore();
   const [selectedLevel, setSelectedLevel] = useState<'beginner' | 'intermediate' | 'advanced'>('intermediate');
-  const [showAssessment, setShowAssessment] = useState(false);
 
   const levels = {
     beginner: {
@@ -308,7 +304,7 @@ export function LearningPathPage() {
 
               {/* Skills */}
               <div className="space-y-3">
-                {currentLevel.skills.map((skill, index) => (
+                {currentLevel.skills.map((skill) => (
                   <SkillNode
                     key={skill.title}
                     {...skill}

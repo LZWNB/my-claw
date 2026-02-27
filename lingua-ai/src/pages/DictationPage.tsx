@@ -2,23 +2,19 @@ import { useTranslation } from 'react-i18next';
 import {
   Headphones,
   Play,
-  Pause,
   RotateCcw,
   Check,
   X,
   Volume2,
-  SkipForward,
-  SkipBack,
   Settings,
   Trophy,
   Clock,
-  Target,
   ChevronRight,
   Star,
   AlertCircle,
   Zap,
 } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { useAppStore } from '../stores/appStore';
 
 // Progress Bar Component
@@ -95,7 +91,6 @@ function ResultCard({ word, userAnswer, correct, onPlay }: {
 }
 
 export function DictationPage() {
-  const { t } = useTranslation();
   const { stats, updateStats } = useAppStore();
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
