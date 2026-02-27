@@ -2,28 +2,37 @@
 
 @theme {
   --color-*: initial;
-  
+
   /* Primary Colors */
   --color-primary: #137fec;
   --color-primary-dark: #0b5db0;
-  
+  --color-primary-light: #3b9af0;
+
   /* Background Colors */
   --color-background-light: #f6f7f8;
   --color-background-dark: #101922;
-  
-  /* Surface Colors */
+
+  /* Surface/Card Colors */
   --color-surface-light: #ffffff;
-  --color-surface-dark: #1a2634;
-  
+  --color-surface-dark: #1a2632;
+  --color-card-dark: #1e293b;
+
   /* Text Colors */
   --color-text-main: #0d141b;
   --color-text-main-dark: #e7edf3;
   --color-text-secondary: #4c739a;
   --color-text-secondary-dark: #94a3b8;
-  
+
   /* Border Colors */
   --color-border-light: #e7edf3;
   --color-border-dark: #2d3b4e;
+
+  /* Accent Colors */
+  --color-accent-purple: #8b5cf6;
+  --color-accent-orange: #f97316;
+  --color-accent-green: #22c55e;
+  --color-accent-pink: #ec4899;
+  --color-accent-yellow: #eab308;
   
   /* Standard Colors */
   --color-white: #ffffff;
