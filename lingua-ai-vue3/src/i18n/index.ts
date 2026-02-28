@@ -1,0 +1,520 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
+// 简体中文
+const zhCN = {
+  nav: {
+    home: '首页',
+    courses: '课程',
+    vocabulary: '词库',
+    community: '社区',
+    pricing: '价格',
+  },
+  hero: {
+    title: '30天内自信说英语',
+    subtitle: '专为东亚学习者设计的综合学习平台。通过针对母语习惯定制的个性化AI反馈，全面提升您的口语对话、词汇量和语法水平。',
+    startFree: '开始免费学习',
+    watchDemo: '观看演示',
+    stats: {
+      learners: '活跃学习者',
+      words: '掌握单词量',
+      conversations: 'AI对话次数',
+      rating: '应用商店评分',
+    },
+  },
+  features: {
+    title: '为什么选择 LinguaAI?',
+    subtitle: '利用专为高效学习设计的尖端功能，释放您的潜能。',
+    aiPartner: {
+      title: 'AI 对话伙伴',
+      desc: '随时随地练习口语。我们的AI能够理解多种口音（中文、日文、韩文），并对语法和语气提供即时、温和的纠正。',
+    },
+    vocabTest: {
+      title: '智能词汇测试',
+      desc: '自适应测验能够识别您的薄弱环节。我们使用间隔重复算法，确保您不仅今天记住了新单词，而是永久掌握。',
+    },
+    social: {
+      title: '社交学习连胜',
+      desc: '一起学习更有趣。加入学习小组，在排行榜上竞争，保持每日打卡连胜，赢取专属徽章和奖励。',
+    },
+  },
+  localization: {
+    title: '为您量身定制的本地化支持',
+    desc: '我们为简体中文、繁体中文、日语和韩语使用者提供专门的支持和本地化界面。',
+  },
+  cta: {
+    title: '准备好开始您的旅程了吗？',
+    subtitle: '今天就加入超过50万名在AI辅助下掌握英语的学习者行列。免费开始。',
+    register: '立即免费注册',
+    download: '下载应用',
+  },
+  dashboard: {
+    welcome: '欢迎回来，{{name}}！',
+    streak: '您已连续打卡{{days}}天。保持这个势头！',
+    continue: '继续学习',
+    stats: {
+      vocabulary: '词汇量',
+      dailyGoal: '每日目标',
+      streak: '连胜',
+      globalRank: '全球排名',
+    },
+    progress: {
+      title: '学习进度预测',
+      subtitle: '基于AI分析的词汇记忆预测',
+      words: '预计掌握单词',
+      growth: '增长',
+    },
+    daily: {
+      dictation: '每日听写',
+      flashcard: '单词闪卡',
+      review: '待复习',
+    },
+    leaderboard: {
+      title: '好友排行榜',
+      viewAll: '查看全部',
+    },
+  },
+  vocabulary: {
+    title: '词汇库',
+    search: '搜索单词（如 \'Serendipity\'）',
+    all: '全部',
+    business: '商务',
+    travel: '旅行',
+    academic: '学术',
+    daily: '日常生活',
+    saved: '我保存的单词',
+    sortBy: '排序方式',
+    recentlyAdded: '最近添加',
+    dailyChallenge: '每日挑战',
+    todayChallenge: '今天学习5个商务单词！',
+    startNow: '立即开始',
+    weeklyTrend: '本周趋势',
+    popularTags: '社区热门标签',
+  },
+  chat: {
+    title: '每日练习',
+    topic: '话题',
+    level: '初级',
+    translate: '翻译为中文',
+    grammarTip: '语法提示',
+    inputPlaceholder: '输入回复或点击麦克风说话...',
+    send: '发送',
+    dailyWord: '每日一词',
+    dailyGoal: '每日目标',
+    xp: '获得XP',
+    recommended: '推荐话题',
+  },
+  auth: {
+    login: '登录',
+    register: '注册',
+    email: '邮箱',
+    password: '密码',
+    name: '姓名',
+    forgotPassword: '忘记密码？',
+    noAccount: '还没有账号？',
+    hasAccount: '已有账号？',
+  },
+  theme: {
+    light: '白天模式',
+    dark: '黑夜模式',
+  },
+  language: {
+    'zh-CN': '简体中文',
+    'zh-TW': '繁體中文',
+    ja: '日本語',
+    ko: '한국어',
+  },
+};
+
+// 繁体中文
+const zhTW = {
+  nav: {
+    home: '首頁',
+    courses: '課程',
+    vocabulary: '詞庫',
+    community: '社區',
+    pricing: '價格',
+  },
+  hero: {
+    title: '30天內自信說英語',
+    subtitle: '專為東亞學習者設計的綜合學習平台。通過針對母語習慣定制的個性化AI反饋，全面提升您的口語對話、詞彙量和語法水平。',
+    startFree: '開始免費學習',
+    watchDemo: '觀看演示',
+    stats: {
+      learners: '活躍學習者',
+      words: '掌握單詞量',
+      conversations: 'AI對話次數',
+      rating: '應用商店評分',
+    },
+  },
+  features: {
+    title: '為什麼選擇 LinguaAI?',
+    subtitle: '利用專為高效學習設計的尖端功能，釋放您的潛能。',
+    aiPartner: {
+      title: 'AI 對話夥伴',
+      desc: '隨時隨地練習口語。我們的AI能夠理解多種口音（中文、日文、韓文），並對語法和語氣提供即時、溫和的糾正。',
+    },
+    vocabTest: {
+      title: '智能詞彙測試',
+      desc: '自適應測驗能夠識別您的薄弱環節。我們使用間隔重複算法，確保您不僅今天記住了新單詞，而是永久掌握。',
+    },
+    social: {
+      title: '社交學習連勝',
+      desc: '一起學習更有趣。加入學習小組，在排行榜上競爭，保持每日打卡連勝，贏取專屬徽章和獎勵。',
+    },
+  },
+  localization: {
+    title: '為您量身定制的本地化支持',
+    desc: '我們為簡體中文、繁體中文、日語和韓語使用者提供專門的支持和本地化界面。',
+  },
+  cta: {
+    title: '準備好開始您的旅程了嗎？',
+    subtitle: '今天就加入超過50萬名在AI輔助下掌握英語的學習者行列。免費開始。',
+    register: '立即免費註冊',
+    download: '下載應用',
+  },
+  dashboard: {
+    welcome: '歡迎回來，{{name}}！',
+    streak: '您已連續打卡{{days}}天。保持這個勢頭！',
+    continue: '繼續學習',
+    stats: {
+      vocabulary: '詞彙量',
+      dailyGoal: '每日目標',
+      streak: '連勝',
+      globalRank: '全球排名',
+    },
+    progress: {
+      title: '學習進度預測',
+      subtitle: '基於AI分析的詞彙記憶預測',
+      words: '預計掌握單詞',
+      growth: '增長',
+    },
+    daily: {
+      dictation: '每日聽寫',
+      flashcard: '單詞閃卡',
+      review: '待複習',
+    },
+    leaderboard: {
+      title: '好友排行榜',
+      viewAll: '查看全部',
+    },
+  },
+  vocabulary: {
+    title: '詞彙庫',
+    search: '搜索單詞（如 \'Serendipity\'）',
+    all: '全部',
+    business: '商務',
+    travel: '旅行',
+    academic: '學術',
+    daily: '日常生活',
+    saved: '我保存的單詞',
+    sortBy: '排序方式',
+    recentlyAdded: '最近添加',
+    dailyChallenge: '每日挑戰',
+    todayChallenge: '今天學習5個商務單詞！',
+    startNow: '立即開始',
+    weeklyTrend: '本週趨勢',
+    popularTags: '社區熱門標籤',
+  },
+  chat: {
+    title: '每日練習',
+    topic: '話題',
+    level: '初級',
+    translate: '翻譯為中文',
+    grammarTip: '語法提示',
+    inputPlaceholder: '輸入回復或點擊麥克風說話...',
+    send: '發送',
+    dailyWord: '每日一詞',
+    dailyGoal: '每日目標',
+    xp: '獲得XP',
+    recommended: '推薦話題',
+  },
+  auth: {
+    login: '登錄',
+    register: '註冊',
+    email: '郵箱',
+    password: '密碼',
+    name: '姓名',
+    forgotPassword: '忘記密碼？',
+    noAccount: '還沒有賬號？',
+    hasAccount: '已有賬號？',
+  },
+  theme: {
+    light: '白天模式',
+    dark: '黑夜模式',
+  },
+  language: {
+    'zh-CN': '簡體中文',
+    'zh-TW': '繁體中文',
+    ja: '日本語',
+    ko: '한국어',
+  },
+};
+
+// 日语
+const ja = {
+  nav: {
+    home: 'ホーム',
+    courses: 'コース',
+    vocabulary: '単語帳',
+    community: 'コミュニティ',
+    pricing: '料金',
+  },
+  hero: {
+    title: '30日で自信を持って英語を話そう',
+    subtitle: '東アジアの学習者のために設計された包括的な学習プラットフォーム。母語の習慣に合わせたパーソナライズされたAIフィードバックで、会話、語彙、文法スキルを向上させます。',
+    startFree: '無料で始める',
+    watchDemo: 'デモを見る',
+    stats: {
+      learners: 'アクティブ学習者',
+      words: '習得単語数',
+      conversations: 'AI会話回数',
+      rating: 'アプリ評価',
+    },
+  },
+  features: {
+    title: 'なぜ LinguaAI を選ぶのか？',
+    subtitle: '効率的な学習のために設計された先進的機能で、あなたの可能性を引き出します。',
+    aiPartner: {
+      title: 'AI 会話パートナー',
+      desc: 'いつでもどこでも会話練習。AIは中国語、日本語、韓国語などの様々なアクセントを理解し、文法とトーンについて即座に優しく修正します。',
+    },
+    vocabTest: {
+      title: 'スマート単語テスト',
+      desc: '適応型テストが弱点を特定。間隔反復アルゴリズムを使用して、今日だけでなく永続的に新しい単語を記憶します。',
+    },
+    social: {
+      title: 'ソーシャル学習ストリーク',
+      desc: '一緒に学ぶ方が楽しい。学習グループに参加し、ランキングで競い合い、毎日のチェックインストリークを維持して、特別なバッジと報酬を獲得しましょう。',
+    },
+  },
+  localization: {
+    title: 'あなたのためにカスタマイズされたローカライゼーションサポート',
+    desc: '簡体字中国語、繁体字中国語、日本語、韓国語の利用者向けに専門的なサポートとローカライズされたインターフェースを提供します。',
+  },
+  cta: {
+    title: '旅を始める準備はできましたか？',
+    subtitle: '今日、50万人以上のAIサポート英語学習者の仲間に加わりましょう。無料で始められます。',
+    register: '今すぐ無料登録',
+    download: 'アプリをダウンロード',
+  },
+  dashboard: {
+    welcome: 'お帰りなさい、{{name}}さん！',
+    streak: '{{days}}日連続でチェックインしています。この調子を保ちましょう！',
+    continue: '学習を続ける',
+    stats: {
+      vocabulary: '語彙力',
+      dailyGoal: '毎日の目標',
+      streak: 'ストリーク',
+      globalRank: '世界ランキング',
+    },
+    progress: {
+      title: '学習進捗予測',
+      subtitle: 'AI分析に基づく語彙記憶予測',
+      words: '予想習得単語数',
+      growth: '成長',
+    },
+    daily: {
+      dictation: '毎日のディクテーション',
+      flashcard: '単語カード',
+      review: '復習予定',
+    },
+    leaderboard: {
+      title: '友達ランキング',
+      viewAll: 'すべて表示',
+    },
+  },
+  vocabulary: {
+    title: '単語帳',
+    search: '単語を検索（例：\'Serendipity\'）',
+    all: 'すべて',
+    business: 'ビジネス',
+    travel: '旅行',
+    academic: '学術',
+    daily: '日常',
+    saved: '保存した単語',
+    sortBy: '並び替え',
+    recentlyAdded: '最近追加',
+    dailyChallenge: '毎日のチャレンジ',
+    todayChallenge: '今日はビジネス単語を5つ学ぼう！',
+    startNow: '今すぐ始める',
+    weeklyTrend: '今週のトレンド',
+    popularTags: '人気タグ',
+  },
+  chat: {
+    title: '毎日の練習',
+    topic: 'トピック',
+    level: '初級',
+    translate: '日本語に翻訳',
+    grammarTip: '文法ヒント',
+    inputPlaceholder: '返信を入力するか、マイクをタップして話してください...',
+    send: '送信',
+    dailyWord: '今日の単語',
+    dailyGoal: '毎日の目標',
+    xp: 'XPを獲得',
+    recommended: 'おすすめトピック',
+  },
+  auth: {
+    login: 'ログイン',
+    register: '登録',
+    email: 'メール',
+    password: 'パスワード',
+    name: '名前',
+    forgotPassword: 'パスワードを忘れた？',
+    noAccount: 'アカウントをお持ちでない？',
+    hasAccount: 'すでにアカウントをお持ち？',
+  },
+  theme: {
+    light: 'ライトモード',
+    dark: 'ダークモード',
+  },
+  language: {
+    'zh-CN': '簡体字中国語',
+    'zh-TW': '繁体字中国語',
+    ja: '日本語',
+    ko: '韓国語',
+  },
+};
+
+// 韩语
+const ko = {
+  nav: {
+    home: '홈',
+    courses: '코스',
+    vocabulary: '단어장',
+    community: '커뮤니티',
+    pricing: '가격',
+  },
+  hero: {
+    title: '30일 만에 자신감 있게 영어로 말하기',
+    subtitle: '동아시아 학습자를 위해 설계된 종합 학습 플랫폼. 모국어 습관에 맞춘 개인화된 AI 피드백으로 회화, 어휘, 문법 실력을 향상시킵니다.',
+    startFree: '무료로 시작하기',
+    watchDemo: '데모 보기',
+    stats: {
+      learners: '활성 학습자',
+      words: '습득 단어 수',
+      conversations: 'AI 대화 횟수',
+      rating: '앱 평점',
+    },
+  },
+  features: {
+    title: '왜 LinguaAI를 선택해야 할까요?',
+    subtitle: '효율적인 학습을 위해 설계된 첨단 기능으로 잠재력을 발휘하세요.',
+    aiPartner: {
+      title: 'AI 대화 파트너',
+      desc: '언제 어디서나 회화 연습. AI는 중국어, 일본어, 한국어 등 다양한 억양을 이해하고 문법과 어조에 대해 즉시 부드럽게 수정합니다.',
+    },
+    vocabTest: {
+      title: '스마트 어휘 테스트',
+      desc: '적응형 테스트가 약점을 파악합니다. 간격 반복 알고리즘을 사용하여 오늘뿐만 아니라 영구적으로 새로운 단어를 기억합니다.',
+    },
+    social: {
+      title: '소셜 학습 연속',
+      desc: '함께 배우는 것이 더 재미있습니다. 학습 그룹에 가입하고, 순위표에서 경쟁하며, 매일 체크인 연속을 유지하여 특별한 배지와 보상을 받으세요.',
+    },
+  },
+  localization: {
+    title: '맞춤형 현지화 지원',
+    desc: '간체 중국어, 번체 중국어, 일본어, 한국어 사용자를 위한 전문적인 지원과 현지화된 인터페이스를 제공합니다.',
+  },
+  cta: {
+    title: '여정을 시작할 준비가 되셨나요?',
+    subtitle: '오늘 50만 명 이상의 AI 지원 영어 학습자들과 함께하세요. 무료로 시작할 수 있습니다.',
+    register: '지금 무료 등록',
+    download: '앱 다운로드',
+  },
+  dashboard: {
+    welcome: '다시 오신 것을 환영합니다, {{name}}님!',
+    streak: '{{days}}일 연속 체크인하셨습니다. 이势頭를 유지하세요!',
+    continue: '학습 계속하기',
+    stats: {
+      vocabulary: '어휘력',
+      dailyGoal: '일일 목표',
+      streak: '연속',
+      globalRank: '전체 순위',
+    },
+    progress: {
+      title: '학습 진도 예측',
+      subtitle: 'AI 분석 기반 어휘 기억 예측',
+      words: '예상 습득 단어 수',
+      growth: '성장',
+    },
+    daily: {
+      dictation: '매일 받아쓰기',
+      flashcard: '단어 카드',
+      review: '복습 예정',
+    },
+    leaderboard: {
+      title: '친구 순위표',
+      viewAll: '모두 보기',
+    },
+  },
+  vocabulary: {
+    title: '단어장',
+    search: '단어 검색 (예: \'Serendipity\')',
+    all: '전체',
+    business: '비즈니스',
+    travel: '여행',
+    academic: '학술',
+    daily: '일상',
+    saved: '저장한 단어',
+    sortBy: '정렬 방식',
+    recentlyAdded: '최근 추가',
+    dailyChallenge: '일일 챌린지',
+    todayChallenge: '오늘 비즈니스 단어 5개 학습하기!',
+    startNow: '지금 시작',
+    weeklyTrend: '이번 주 트렌드',
+    popularTags: '인기 태그',
+  },
+  chat: {
+    title: '매일 연습',
+    topic: '주제',
+    level: '초급',
+    translate: '한국어로 번역',
+    grammarTip: '문법 팁',
+    inputPlaceholder: '답변을 입력하거나 마이크를 탭하여 말하세요...',
+    send: '보내기',
+    dailyWord: '오늘의 단어',
+    dailyGoal: '일일 목표',
+    xp: 'XP 획득',
+    recommended: '추천 주제',
+  },
+  auth: {
+    login: '로그인',
+    register: '등록',
+    email: '이메일',
+    password: '비밀번호',
+    name: '이름',
+    forgotPassword: '비밀번호를 잊으셨나요?',
+    noAccount: '계정이 없으신가요?',
+    hasAccount: '이미 계정이 있으신가요?',
+  },
+  theme: {
+    light: '라이트 모드',
+    dark: '다크 모드',
+  },
+  language: {
+    'zh-CN': '간체 중국어',
+    'zh-TW': '번체 중국어',
+    ja: '일본어',
+    ko: '한국어',
+  },
+};
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      'zh-CN': { translation: zhCN },
+      'zh-TW': { translation: zhTW },
+      ja: { translation: ja },
+      ko: { translation: ko },
+    },
+    lng: 'zh-CN',
+    fallbackLng: 'zh-CN',
+    interpolation: {
+      escapeValue: false,
+    },
+  });
+
+export default i18n;
